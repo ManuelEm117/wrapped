@@ -1,28 +1,22 @@
-// Registrar el Service Worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/wrapped/sw.js')
-      .then((reg) => console.log('Service Worker registrado', reg))
-      .catch((err) => console.error('Error registrando SW', err));
-  });
-}
-
-// Mostrar interfaz según el modo
 window.addEventListener('DOMContentLoaded', () => {
-  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
   const isStandalone = window.matchMedia('(display-mode: standalone)').matches
-    || window.navigator.standalone === true; // soporte para iOS antiguo
+    || window.navigator.standalone === true; // para iOS antiguo
 
-  if (isIos && !isStandalone) {
-    document.getElementById('instrucciones').style.display = 'block';
-  } else {
+  // Ocultamos ambas pantallas al inicio
+  document.getElementById('instrucciones').style.display = 'none';
+  document.getElementById('app').style.display = 'none';
+
+  if (isStandalone) {
+    // Si está anclado, mostramos la pantalla de app
     document.getElementById('app').style.display = 'block';
+  } else {
+    // Si NO está anclado, mostramos la pantalla de instrucciones
+    document.getElementById('instrucciones').style.display = 'block';
   }
 
   const btn = document.getElementById('verResumen');
   if (btn) {
     btn.addEventListener('click', () => {
-      // Aquí rediriges o inicias tu wrapped
       alert("Aquí empieza el resumen del año ❤️");
       // window.location.href = "wrapped.html";
     });
