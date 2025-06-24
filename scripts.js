@@ -1,22 +1,19 @@
+// Mostrar interfaz según el modo
 window.addEventListener('DOMContentLoaded', () => {
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches
-    || window.navigator.standalone === true; // para iOS antiguo
-
-  // Ocultamos ambas pantallas al inicio
-  document.getElementById('instrucciones').style.display = 'none';
-  document.getElementById('app').style.display = 'none';
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
 
   if (isStandalone) {
-    // Si está anclado, mostramos la pantalla de app
+    // Si está en modo standalone, muestra la pantalla de la app
     document.getElementById('app').style.display = 'block';
   } else {
-    // Si NO está anclado, mostramos la pantalla de instrucciones
+    // Si no está en modo standalone, muestra la pantalla de instrucciones
     document.getElementById('instrucciones').style.display = 'block';
   }
 
   const btn = document.getElementById('verResumen');
   if (btn) {
     btn.addEventListener('click', () => {
+      // Aquí rediriges o inicias tu wrapped
       alert("Aquí empieza el resumen del año ❤️");
       // window.location.href = "wrapped.html";
     });
