@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+  text-align: center;
+  padding: 2rem;
+}
+
+button {
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.pantalla {
+  max-width: 500px;
+  margin: 0 auto;
+}
