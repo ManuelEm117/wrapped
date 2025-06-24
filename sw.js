@@ -2,12 +2,12 @@ self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open('wrapped-cache').then((cache) => {
       return cache.addAll([
-        '/',
-        '/index.html',
-        '/style.css',
-        '/scripts.js',
-        '/icon-192.png',
-        '/icon-512.png'
+        '/wrapped/',
+        '/wrapped/index.html',
+        '/wrapped/style.css',
+        '/wrapped/scripts.js',
+        '/wrapped/icon-192.png',
+        '/wrapped/icon-512.png'
       ]);
     })
   );
