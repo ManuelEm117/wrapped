@@ -5,9 +5,7 @@ self.addEventListener('install', (e) => {
         '/wrapped/',
         '/wrapped/index.html',
         '/wrapped/style.css',
-        '/wrapped/scripts.js',
-        '/wrapped/icon-192.png',
-        '/wrapped/icon-512.png'
+        '/wrapped/scripts.js'
       ]);
     })
   );
