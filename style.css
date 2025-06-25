@@ -1,24 +1,38 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #fff;
-  color: #333;
+  margin: 0;
+  font-family: 'Arial Black', Arial, sans-serif;
+  background: #121212;
+  color: white;
   text-align: center;
-  padding: 2rem;
+  overflow-x: hidden;
 }
 
 button {
-  background-color: #a2ef4a;
+  background-color: #0000FF;
   color: white;
   border: none;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   font-size: 1.2rem;
-  border-radius: 1rem;
+  border-radius: 2rem;
   cursor: pointer;
   margin-top: 2rem;
+  box-shadow: 0 0 15px #a2ef4a;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #0a00d9;
+  box-shadow: 0 0 25px #7fcc2b;
 }
 
 .pantalla {
   max-width: 500px;
   margin: 0 auto;
-  margin-top: 60%;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 1rem;
 }

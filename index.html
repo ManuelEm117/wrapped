@@ -11,16 +11,61 @@
   </head>
   <body>
     <!-- Pantalla de bienvenida si NO está anclado -->
-    <div id="instrucciones" class="pantalla" style="display: none;">
+    <div id="instrucciones" class="pantalla" style="display: none">
       <h2>📲 Añádeme a la pantalla de inicio</h2>
-      <p>Para ver el resumen, toca el botón <strong>Compartir</strong> y elige <strong>Añadir a pantalla de inicio</strong>.</p>
+      <p>
+        Para ver el resumen, toca el botón <strong>Compartir</strong> y elige
+        <strong>Añadir a pantalla de inicio</strong>.
+      </p>
       <!--<img src="instruccion-ios.png" alt="Instrucciones iOS" style="max-width: 100%; margin-top: 1rem;">-->
     </div>
 
     <!-- Pantalla de app si SÍ está anclado -->
-    <div id="app" class="pantalla" style="display: none;">
-      <h1>¡Hola amor! ❤️</h1>
-      <button id="verResumen">Ver resumen de nuestro año</button>
+    <div
+      id="app"
+      class="pantalla"
+      style="
+        display: none;
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        color: white;
+      "
+    >
+      <canvas
+        id="backgroundCanvas"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+        "
+      ></canvas>
+      <div style="position: relative; z-index: 1; padding: 2rem">
+        <h1
+          style="
+            font-weight: 900;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+          "
+        >
+          ¡Hola niñaa! 💙
+        </h1>
+        <button
+          id="verResumen"
+          style="
+            background-color: #0000ff;
+            box-shadow: 0 0 10px #a2ef4a;
+            font-weight: 700;
+            font-size: 1.3rem;
+          "
+        >
+          Wrapped de nuestro primer año
+        </button>
+      </div>
     </div>
   </body>
 </html>
