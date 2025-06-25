@@ -1,8 +1,8 @@
 // Mostrar interfaz según el modo
 //const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
 window.addEventListener("DOMContentLoaded", () => {
-  //const isStandalone = true; // para pruebas en PC
-  const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
+  const isStandalone = true; // para pruebas en PC
+  //const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
   if (isStandalone) {
     document.getElementById("app").style.display = "block";
   } else {

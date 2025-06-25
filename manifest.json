@@ -1,9 +1,22 @@
 {
   "name": "Wrapped para ti",
-  "short_name": "Wrapped",
+  "short_name": "M&V",
   "start_url": "/wrapped/index.html",
   "display": "standalone",
   "background_color": "#0000ff",
   "theme_color": "#0000ff",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "icons": [
+  {
+    "src": "icons/love_1-removebg-preview.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "icons/love_1-removebg-preview.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+]
+
 }
