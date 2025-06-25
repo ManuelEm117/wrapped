@@ -126,3 +126,29 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   animate();
 });
+
+
+function getSafeAreaInsets() {
+  const testEl = document.createElement('div');
+  testEl.style.cssText = `
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 0;
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-right: env(safe-area-inset-right);
+  `;
+  document.body.appendChild(testEl);
+  const computed = window.getComputedStyle(testEl);
+  const insets = {
+    top: parseInt(computed.paddingTop) || 0,
+    left: parseInt(computed.paddingLeft) || 0,
+    bottom: parseInt(computed.paddingBottom) || 0,
+    right: parseInt(computed.paddingRight) || 0,
+  };
+  document.body.removeChild(testEl);
+  return insets;
+}
+const insets = getSafeAreaInsets();
+console.log("Notch insets:", insets);
