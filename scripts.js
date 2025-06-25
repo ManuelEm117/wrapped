@@ -12,8 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("verResumen");
   if (btn) {
     btn.addEventListener("click", () => {
-      alert("Aquí empieza el resumen del año ❤️");
-      // window.location.href = "wrapped.html";
+      window.location.href = "historias.html";
     });
   }
 
