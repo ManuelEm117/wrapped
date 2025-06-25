@@ -1,20 +1,10 @@
-/*body {
+body {
   margin: 0;
   font-family: "Arial Black", Arial, sans-serif;
-  background: #313030ac;
+  background: #a2ef4a;
   color: white;
   text-align: center;
   overflow-x: hidden;
-}*/
-body {
-  margin: 0;
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-  font-family: "Arial Black", Arial, sans-serif;
-  background: #313030ac;
-  color: white;
 }
 
 button {
