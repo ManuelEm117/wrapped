@@ -1,8 +1,8 @@
 // Mostrar interfaz según el modo
 //const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
 window.addEventListener("DOMContentLoaded", () => {
-  //const isStandalone = false; // para pruebas en PC
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+  const isStandalone = true; // para pruebas en PC
+  //const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
   if (isStandalone) {
     document.getElementById("app").style.display = "block";
   } else {
@@ -88,13 +88,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Creamos un array con círculos variados usando variantes de estos colores
   const circles = [];
-  const count = 12;
+  const count = 150;
 
   for (let i = 0; i < count; i++) {
     // Variar tamaño, velocidad y color (mezcla verde/azul)
     const radius = 60 + Math.random() * 80;
-    const speedX = 0.15 + Math.random() * 0.2;
-    const speedY = 0.1 + Math.random() * 0.15;
+    const speedX = 0.15 + Math.random() * 1;
+    const speedY = 0.1 + Math.random() * 1;
 
     // Mezcla color
     const color = i % 2 === 0 ? greenBase : blueBase;

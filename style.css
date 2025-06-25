@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Arial Black', Arial, sans-serif;
-  background: #121212;
+  background: #313030ac;
   color: white;
   text-align: center;
   overflow-x: hidden;
@@ -24,7 +24,12 @@ button:hover {
   background-color: #0a00d9;
   box-shadow: 0 0 25px #7fcc2b;
 }
-
+#instrucciones{
+  margin-top: 35%;
+}
+strong{
+  color: #4646d8;
+}
 .pantalla {
   max-width: 500px;
   margin: 0 auto;
