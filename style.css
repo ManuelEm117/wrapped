@@ -5,8 +5,10 @@ body {
   color: white;
   text-align: center;
   overflow-x: hidden;
-  padding-top: var(--safe-top, 0px);
-  padding-bottom: var(--safe-bottom, 0px);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 button {

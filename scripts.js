@@ -88,7 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Creamos un array con círculos variados usando variantes de estos colores
   const circles = [];
-  const count = 350;
+  const count = 250;
 
   for (let i = 0; i < count; i++) {
     // Variar tamaño, velocidad y color (mezcla verde/azul)
@@ -126,22 +126,4 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   animate();
 });
-function ajustarParaNotch() {
-  const style = document.documentElement.style;
 
-  // Estas variables se ajustan automáticamente en móviles con notch
-  const safeTop = getComputedStyle(document.documentElement).getPropertyValue(
-    "env(safe-area-inset-top)"
-  );
-  const safeBottom = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("env(safe-area-inset-bottom)");
-
-  // Aplica estos valores al body o a cualquier contenedor
-  style.setProperty("--safe-top", safeTop || "0px");
-  style.setProperty("--safe-bottom", safeBottom || "0px");
-}
-
-// Ejecutar al cargar y al redimensionar
-window.addEventListener("DOMContentLoaded", ajustarParaNotch);
-window.addEventListener("resize", ajustarParaNotch);
