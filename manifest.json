@@ -8,12 +8,12 @@
   "orientation": "portrait",
   "icons": [
   {
-    "src": "icons/Fondo de “IMG_7853” eliminado.png",
+    "src": "icons/IMG_7853.jpg",
     "sizes": "192x192",
     "type": "image/png"
   },
   {
-    "src": "icons/Fondo de “IMG_7853” eliminado.png",
+    "src": "icons/IMG_7853.jpg",
     "sizes": "512x512",
     "type": "image/png"
   }
