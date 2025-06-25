@@ -88,7 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Creamos un array con círculos variados usando variantes de estos colores
   const circles = [];
-  const count = 150;
+  const count = 350;
 
   for (let i = 0; i < count; i++) {
     // Variar tamaño, velocidad y color (mezcla verde/azul)
