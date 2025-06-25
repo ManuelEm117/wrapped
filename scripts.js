@@ -2,7 +2,7 @@
 //const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
 window.addEventListener("DOMContentLoaded", () => {
   //const isStandalone = true; // para pruebas en PC
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
   if (isStandalone) {
     document.getElementById("app").style.display = "block";
   } else {
@@ -126,29 +126,22 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   animate();
 });
+function ajustarParaNotch() {
+  const style = document.documentElement.style;
 
+  // Estas variables se ajustan automáticamente en móviles con notch
+  const safeTop = getComputedStyle(document.documentElement).getPropertyValue(
+    "env(safe-area-inset-top)"
+  );
+  const safeBottom = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("env(safe-area-inset-bottom)");
 
-function getSafeAreaInsets() {
-  const testEl = document.createElement('div');
-  testEl.style.cssText = `
-    position: absolute;
-    top: 0; left: 0;
-    width: 0; height: 0;
-    padding-top: env(safe-area-inset-top);
-    padding-left: env(safe-area-inset-left);
-    padding-bottom: env(safe-area-inset-bottom);
-    padding-right: env(safe-area-inset-right);
-  `;
-  document.body.appendChild(testEl);
-  const computed = window.getComputedStyle(testEl);
-  const insets = {
-    top: parseInt(computed.paddingTop) || 0,
-    left: parseInt(computed.paddingLeft) || 0,
-    bottom: parseInt(computed.paddingBottom) || 0,
-    right: parseInt(computed.paddingRight) || 0,
-  };
-  document.body.removeChild(testEl);
-  return insets;
+  // Aplica estos valores al body o a cualquier contenedor
+  style.setProperty("--safe-top", safeTop || "0px");
+  style.setProperty("--safe-bottom", safeBottom || "0px");
 }
-const insets = getSafeAreaInsets();
-console.log("Notch insets:", insets);
+
+// Ejecutar al cargar y al redimensionar
+window.addEventListener("DOMContentLoaded", ajustarParaNotch);
+window.addEventListener("resize", ajustarParaNotch);
