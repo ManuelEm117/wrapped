@@ -3,7 +3,7 @@
   "short_name": "Wrapped",
   "start_url": "/wrapped/index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ff4081",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "orientation": "portrait"
 }
