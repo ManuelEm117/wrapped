@@ -54,7 +54,7 @@ html, body {
 
 .progress-bar {
   flex: 1;
-  height: 10px;
+  height: 7px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 2px;
   overflow: hidden;
