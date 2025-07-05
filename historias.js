@@ -74,9 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const animateCollagePhotos = () => {
     const container = document.querySelector(".story-1 .photo-collage");
 
+    // Elimina clones anteriores
     const existingClones = container.querySelectorAll(".collage-photo.clone");
     existingClones.forEach((el) => el.remove());
 
+    // Prepara originales y duplicados
     const originalPhotos = Array.from(
       container.querySelectorAll(".collage-photo:not(.clone)")
     );
@@ -93,8 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
+    const spacing = 180; // más espacio mínimo entre fotos
     const positions = [];
-    const spacing = 160;
 
     const isTooClose = (newBox) => {
       return positions.some((existing) => {
@@ -115,8 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
       let leftPx, topPx, newBox;
 
       do {
-        const leftPercent = Math.random() * 70 + 10;
-        const topPercent = Math.random() * 65 + 10;
+        // Usamos rangos más amplios para que algunas fotos vayan más a los bordes
+        const leftPercent = Math.random() * 75; // antes era 70+10
+        const topPercent = Math.random() * 90; // antes era 65+10
 
         leftPx = (leftPercent / 100) * containerWidth;
         topPx = (topPercent / 100) * containerHeight;
@@ -129,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         attempts++;
-        if (attempts > 150) break;
+        if (attempts > 200) break; // más intentos para conseguir buen espaciado
       } while (isTooClose(newBox));
 
       positions.push(newBox);
@@ -145,55 +148,17 @@ document.addEventListener("DOMContentLoaded", () => {
       ];
       const enterDir =
         directions[Math.floor(Math.random() * directions.length)];
+
       img.style.setProperty("--from-x", enterDir.x);
       img.style.setProperty("--from-y", enterDir.y);
 
-      const maxDisp = 150;
-      let toX = (Math.random() - 0.5) * 2 * maxDisp;
-      let toY = (Math.random() - 0.5) * 2 * maxDisp;
+      // Añadimos más variedad al `delay` y duración para evitar solapamientos animados
+      const delay = Math.random() * 1.2 + 0.2;
+      const duration = Math.random() * 0.6 + 0.9;
 
-      if (leftPx + toX < 0) toX = -leftPx;
-      if (leftPx + imgWidth + toX > containerWidth)
-        toX = containerWidth - imgWidth - leftPx;
-      if (topPx + toY < 0) toY = -topPx;
-      if (topPx + imgHeight + toY > containerHeight)
-        toY = containerHeight - imgHeight - topPx;
-
-      img.style.setProperty("--to-x", `${toX}px`);
-      img.style.setProperty("--to-y", `${toY}px`);
-
-      const delay = Math.random() * 1.3 + 0.2;
-
-      img.style.animation = `enterPhoto 1.2s ease-out ${delay.toFixed(
+      img.style.animation = `enterPhoto ${duration.toFixed(
         2
-      )}s forwards`;
-
-      const totalDelay = (delay + 1.2 + 0.3) * 1000;
-      setTimeout(() => {
-        img.style.animation = `explodePhoto 1.5s ease-in-out forwards`;
-
-        setTimeout(() => {
-          img.style.animation = "none";
-          img.style.transform = `translate(${toX}px, ${toY}px)`;
-
-          let direction = 1;
-          const amplitudeX = 1.5;
-          const amplitudeY = 1.5;
-          const duration = 15000;
-
-          const animateSideToSide = () => {
-            direction = -direction;
-            img.style.transition = `transform ${duration}ms ease-in-out`;
-            const offsetX = toX + amplitudeX * direction;
-            const offsetY =
-              toY + amplitudeY * direction * (Math.random() > 0.5 ? 1 : -1);
-            img.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-            setTimeout(animateSideToSide, duration);
-          };
-
-          animateSideToSide();
-        }, 1500);
-      }, totalDelay);
+      )}s ease-out ${delay.toFixed(2)}s forwards`;
     });
   };
 
