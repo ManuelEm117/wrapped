@@ -147,12 +147,11 @@ body {
   border-radius: 15px;
 }
 .highlight {
-  background-color: rgba(115, 232, 128, 0.6); 
-  border-radius: 4px;
+  background-color: rgba(115, 232, 128, 0.6);
   padding: 0 3px;
+  margin: 3px;
 }
 .tit{
-  background-color: rgba(115, 232, 128, 0.6); 
-  border-radius: 4px;
+  background-color: rgba(115, 232, 128, 0.6);
   padding: 0 3px;
 }

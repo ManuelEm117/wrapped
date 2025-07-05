@@ -163,4 +163,16 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   animateCollagePhotos();
+
+  const audio = document.getElementById("historia-audio");
+
+  // Reproducir tras la primera interacción del usuario
+  const enableAudio = () => {
+    audio.play().catch((err) => {
+      console.log("Error al reproducir audio en historias:", err);
+    });
+    document.removeEventListener("click", enableAudio);
+  };
+
+  document.addEventListener("click", enableAudio);
 });
